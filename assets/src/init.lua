@@ -8,9 +8,9 @@ olua.debug(DEBUG)
 
 -- enable lua debug
 if DEBUG then
-    -- require("xgame.LuaPanda").start("127.0.0.1", 8818)
-    -- local hanlder = require("xgame.LuaDebug")("localhost", 7003)
-    -- timer.schedule(0, hanlder)
+    require("xgame.LuaPanda").start("127.0.0.1", 8818)
+    local hanlder = require("xgame.LuaDebug")("localhost", 7003)
+    timer.schedule(0, hanlder)
 end
 
 -- set window size on mac or win

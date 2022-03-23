@@ -6,5 +6,5 @@ function main()
     local Console = require('system.console.Console')
     xGame.stage:addChild(Console.new())
 
-    xGame:startScene('test.SpineTest')
+    xGame:startScene('test.Login')
 end

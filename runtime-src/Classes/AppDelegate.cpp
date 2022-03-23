@@ -71,6 +71,14 @@ extern "C" {
 #include "pbc/pbc.h"
 #endif // CCLUA_BUILD_PBC
 
+#ifdef CCLUA_BUILD_YASIO
+#include "yasio/lua_yasio.h"
+#endif // CCLUA_BUILD_YASIO
+
+#ifdef CCLUA_BUILD_CRYPT
+#include "crypt/lua-crypt.h"
+#endif // CCLUA_BUILD_CRYPT
+
 #ifdef CCLUA_BUILD_SPROTO
 #include "sproto/lsproto.h"
 #endif // CCLUA_BUILD_SPROTO
@@ -155,6 +163,14 @@ static int _open_plugins(lua_State *L)
 #ifdef CCLUA_BUILD_PBC
     olua_require(L, "protobuf.c", luaopen_protobuf_c);
 #endif // CCLUA_BUILD_PBC
+
+#ifdef CCLUA_BUILD_YASIO
+    olua_callfunc(L, luaopen_yasio);
+#endif // CCLUA_BUILD_YASIO
+
+#ifdef CCLUA_BUILD_CRYPT
+    olua_require(L, "crypt", luaopen_crypt);
+#endif // CCLUA_BUILD_CRYPT
     
 #if defined(CCLUA_BUILD_JPUSH) || defined(CCLUA_BUILD_JANALYTICS) || defined(CCLUA_BUILD_JAUTH)
     olua_callfunc(L, luaopen_jiguang);
